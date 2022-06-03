@@ -4,11 +4,11 @@
     "slug": "naksha",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/naksha-logo-v1.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/Onboarding.jpg",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#6C24AA"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -18,15 +18,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
+    
   }
 }

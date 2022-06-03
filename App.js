@@ -1,21 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Block, GalioProvider } from 'galio-framework';
+import { NavigationContainer } from '@react-navigation/native';
+import { Images, products, materialTheme } from './constants/';
+import Screens from './navigation/Screens';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+
+import { enableScreens } from 'react-native-screens';
+enableScreens();
+
+const assetImages = [
+  Images.Pro,
+  Images.Profile,
+  Images.Avatar,
+  Images.Onboarding,
+];
+
+const store = ConfigureStore();
+
+export default class App extends React.Component {
+  state = {
+    isLoadingComplete: false,
+  };
+
+  render() {
+    return (
+      <Provider store={store}>
+      <NavigationContainer>
+        <GalioProvider theme={materialTheme}>
+          <Block flex>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <Screens />
+          </Block>
+        </GalioProvider>
+      </NavigationContainer>
+      </Provider>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
